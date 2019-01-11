@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/layout :: header"></div>
+
+<div class="container">
+    <h2>New Client</h2>
+    <div class="col-md-4">
+        <form th:object="${client}" th:action="@{clientadd}" action="#" method="post">
+            <input type="text" th:field="*{clientName}" class="form-control"
+                   placeholder="Client Name" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="submit" class="btn btn-primary" value="Save">
+            <br /><br />
+            <p>
+                <a href="/clientlist">Back to List</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+
+<div th:replace="fragments/layout :: footer"></div>
+</body>
+</html>

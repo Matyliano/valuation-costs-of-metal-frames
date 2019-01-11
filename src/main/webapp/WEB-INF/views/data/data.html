@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dane</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen"
+          th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}"/>
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+<div th:replace="fragments/layout :: header"></div>
+<div class="container">
+    <h1>
+        <p class="lead text-center">
+            <b>Dane</b>
+        </p>
+    </h1>
+
+
+    <div class="starter-template">
+        <table class="table table-bordered">
+
+            <tr>
+                <td><b>Aktualny kurs Euro [zł]</b></td>
+                <!--<td th:text="${euro}"> </td>-->
+            </tr>
+            <tr>
+                <td th:text="${euro}"></td>
+            </tr>
+
+        </table>
+        <br>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>Cena stali [Euro/kg]</th>
+                <th>Edytuj</th>
+            </tr>
+            <tr>
+                <td th:text="${price.steelPrice}"></td>
+                <td><a href="data" th:href="@{/price}">
+                    <button type="button" class="btn btn-default"><b><span class="glyphicon glyphicon-edit"
+                                                                           aria-hidden="true"></span></b></button>
+                </a><br/></td>
+            </tr>
+        </table>
+        <br>
+
+        <div class="starter-template">
+
+            <h4>Stawki godzinowe</h4><br>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Id</th>
+                    <th>Typ operacji</th>
+                    <th>Koszt operacji [zł/h]</th>
+                    <th>Edytuj</th>
+                    <th>Usuń</th>
+                </tr>
+
+                <tr th:each="hours: ${hourlyWage}">
+                    <td th:text="${hours.id}"></td>
+                    <td th:text="${hours.workName}"></td>
+                    <td th:text="${hours.price}"></td>
+                    <td><a href="hourlyWage" th:href="@{/time-consuming}">
+                        <button type="button" class="btn btn-default"><b><span class="glyphicon glyphicon-edit"
+                                                                               aria-hidden="true"></span></b></button>
+                    </a></td>
+                    <td><a href="#" type="reset"><span class=" glyphicon glyphicon-remove"></span></a></td>
+                </tr>
+            </table>
+            <br>
+        </div>
+
+        <div>
+            <h4>Dodaj operację</h4><br>
+            <table class="table table-striped" id="tableToModify">
+                <tr>
+                    <th>Typ operacji</th>
+                    <th>Koszt operacji [zł/h]</th>
+                    <th>Akceptuj</th>
+                </tr>
+                <tr>
+                    <td><input type="text" th:field="*{hourlyWage}" name="text_new_element"/></td>
+                    <td><input type="text" th:field="*{hourlyWage}" name="text_new_element"/></td>
+                    <td>
+                        <button type="submit" class="btn btn-default" value="Submit"><b><span
+                                class="glyphicon glyphicon-thumbs-up"
+                                aria-hidden="true"></span></b></button>
+                    </td>
+                </tr>
+            </table>
+            <!--<form action="#"  th:action="@{/data}" th:object="${hourlyWage}" method="post">-->
+                <!--<tr>-->
+                    <!--<th><input type="text" th:field="*{hourlyWage}"/><br/></th>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><a href="data" th:href="@{/data}">-->
+                        <!--<button type="submit" class="btn btn-default" value="Submit"><b><span-->
+                                <!--class="glyphicon glyphicon-thumbs-up"-->
+                                <!--aria-hidden="true"></span></b></button>-->
+                    <!--</a></td>-->
+                    <!--<td><a href="data" th:href="@{/data}">-->
+                        <!--<button type="reset" class="btn btn-default" value="Submit"><b><span-->
+                                <!--class="glyphicon glyphicon-remove"-->
+                                <!--aria-hidden="true"></span></b></button>-->
+                    <!--</a><br/></td>-->
+                <!--</tr>-->
+            <!--</form>-->
+        </div>
+
+        <br>
+
+        <div>
+            <a href="menu" th:href="@{/menu}">
+                <button type="button" class="btn btn-default"><b>Back to Menu</b></button>
+            </a><br/>
+        </div>
+    </div>
+</div>
+<br>
+
+<div th:replace="fragments/layout :: footer"></div>
+</body>
+
+</html>
