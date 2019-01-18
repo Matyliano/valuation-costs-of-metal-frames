@@ -1,6 +1,7 @@
 package matyliano.valuation.signup;
 
-import awyss.account.AccountRepository;
+
+import matyliano.valuation.account.AccountRepository;
 import org.springframework.stereotype.Component;
 
 import javax.validation.Constraint;
@@ -17,7 +18,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Target({FIELD, ANNOTATION_TYPE})
 @Retention(RUNTIME)
-@Constraint(validatedBy = awyss.signup.EmailExistsValidator.class)
+@Constraint(validatedBy = matyliano.valuation.signup.EmailExistsValidator.class)
 @Documented
 public @interface EmailExists {
 
@@ -29,7 +30,7 @@ public @interface EmailExists {
 }
 
 @Component
-class EmailExistsValidator implements ConstraintValidator<awyss.signup.EmailExists, String> {
+class EmailExistsValidator implements ConstraintValidator<EmailExists, String> {
 
     private final AccountRepository accountRepository;
 
@@ -39,7 +40,7 @@ class EmailExistsValidator implements ConstraintValidator<awyss.signup.EmailExis
 
 
     @Override
-    public void initialize( awyss.signup.EmailExists constraintAnnotation) {
+    public void initialize( matyliano.valuation.signup.EmailExists constraintAnnotation) {
 
     }
 

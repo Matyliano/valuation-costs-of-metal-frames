@@ -1,8 +1,7 @@
 package matyliano.valuation.signup;
 
-import awyss.account.Account;
-import awyss.account.Role;
 import matyliano.valuation.account.Account;
+import matyliano.valuation.account.Role;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
