@@ -33,10 +33,5 @@ public class Client  {
         this.clientName = clientName;
     }
 
-    public Client() {
-    }
 
-    public Client( String clientName ) {
-        this.clientName = clientName;
-    }
 }
