@@ -3,7 +3,8 @@ package matyliano.valuation.web;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import static awyss.support.web.Message.MESSAGE_ATTRIBUTE;
+
+import static matyliano.valuation.web.Message.MESSAGE_ATTRIBUTE;
 
 public final class MessageHelper {
 

@@ -1,9 +1,10 @@
 package matyliano.valuation.config;
 
-import awyss.Application;
+
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import matyliano.valuation.ValuationCostsOfMetalFramesApplication;
+import matyliano.valuation.Application;
+
 import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,7 +25,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackageClasses = ValuationCostsOfMetalFramesApplication.class)
+@EnableJpaRepositories(basePackageClasses = Application.class)
 class JpaConfig {
 
     @Value("${dataSource.driverClassName}")
@@ -66,7 +67,7 @@ class JpaConfig {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
 
-        String entities = ClassUtils.getPackageName(ValuationCostsOfMetalFramesApplication.class);
+        String entities = ClassUtils.getPackageName(Application.class);
         String converters = ClassUtils.getPackageName(Jsr310JpaConverters.class);
         entityManagerFactoryBean.setPackagesToScan(entities, converters);
 

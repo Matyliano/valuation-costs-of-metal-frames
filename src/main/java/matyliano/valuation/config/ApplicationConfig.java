@@ -1,7 +1,8 @@
 package matyliano.valuation.config;
 
 
-import matyliano.valuation.ValuationCostsOfMetalFramesApplication;
+import matyliano.valuation.Application;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +12,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @PropertySource("classpath:persistence.properties")
 @PropertySource("classpath:application.properties")
-@ComponentScan(basePackageClasses = ValuationCostsOfMetalFramesApplication.class)
+@ComponentScan(basePackageClasses = Application.class)
 class ApplicationConfig {
 
     @Bean
