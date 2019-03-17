@@ -3,7 +3,7 @@
 a simple program for calculating costs of productions of metal frames for a Pomeranian company
 ## Getting Started
 <img src="images/run.png" width="350">
-http://localhost:8090/
+http://localhost:8080/
 
 ## Build With:
 - Maven
