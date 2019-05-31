@@ -13,21 +13,21 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.DayOfWeek;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Service
 public class EuroService {
 
 
     public String dateTime(){
-        LocalDate today = LocalDate.now();
+        LocalDateTime today = LocalDateTime.now();
 
         if(today.getDayOfWeek() == DayOfWeek.SATURDAY){
-            today = LocalDate.now().minusDays(1);
+            today = LocalDateTime.now().minusDays(1);
         }
 
         if(today.getDayOfWeek() == DayOfWeek.SUNDAY){
-            today = LocalDate.now().minusDays(2);
+            today = LocalDateTime.now().minusDays(2);
         }
 
         return today.toString();
@@ -36,14 +36,14 @@ public class EuroService {
 
     public String euroLastApplicableValue() throws IOException {
 
-        LocalDate today = LocalDate.now();
+        LocalDateTime today = LocalDateTime.now();
 
         if(today.getDayOfWeek() == DayOfWeek.SATURDAY){
-            today = LocalDate.now().minusDays(1);
+            today = LocalDateTime.now().minusDays(1);
         }
 
         if(today.getDayOfWeek() == DayOfWeek.SUNDAY){
-            today = LocalDate.now().minusDays(2);
+            today = LocalDateTime.now().minusDays(2);
         }
 
         StringBuffer sentenceBuilder = new StringBuffer();

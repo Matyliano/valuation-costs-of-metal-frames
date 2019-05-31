@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -29,7 +29,7 @@ public class SteelPrice {
     @DecimalMin("0.0")
     public Double steelPrice;
 
-    public LocalDate startDate = LocalDate.now();
+    public LocalDateTime startDate = LocalDateTime.now();
 
 
 //    public LocalDate endDate;
@@ -52,11 +52,11 @@ public class SteelPrice {
         this.steelPrice = steelPrice;
     }
 
-    public LocalDate getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate( LocalDate startDate ) {
+    public void setStartDate( LocalDateTime startDate ) {
         this.startDate = startDate;
     }
 }
